@@ -9,7 +9,7 @@ function App() {
 
   //useRef hook
 
-  const passwordRef = useRef(null)
+  const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback( () => {
     let pass = "";
