@@ -4,6 +4,7 @@ import NetflixSeries from './components/NetflixSeries';
 // import viteLogo from '/vite.svg'
 import './App.css'
 import { EventHandling } from './components/EventHandling';
+import { EventProps } from './components/EventProps';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,8 @@ function App() {
     <section className='container'>
     {/* <h1 className='card-heading'>List of Best Nextflix Series</h1>
     <NetflixSeries /> */}
-   <EventHandling />
+   {/* <EventHandling /> */}
+   <EventProps/>
     </section>
   )
 }
