@@ -5,6 +5,7 @@ import NetflixSeries from './components/NetflixSeries';
 import './App.css'
 import { EventHandling } from './components/EventHandling';
 import { EventProps } from './components/EventProps';
+import { State } from './components/hooks/State';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,7 +14,8 @@ function App() {
     {/* <h1 className='card-heading'>List of Best Nextflix Series</h1>
     <NetflixSeries /> */}
    {/* <EventHandling /> */}
-   <EventProps/>
+   {/* <EventProps/> */}
+   <State/>
     </section>
   )
 }
