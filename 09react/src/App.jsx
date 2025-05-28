@@ -7,6 +7,7 @@ import { EventHandling } from './components/EventHandling';
 import { EventProps } from './components/EventProps';
 import { State } from './components/hooks/State';
 import { DerivedState } from './components/DericedState';
+import { LiftStateUp } from './components/LiftStateUp';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,7 +17,8 @@ function App() {
     <NetflixSeries /> */}
    {/* <EventHandling /> */}
    {/* <EventProps/> */}
-   <DerivedState/>
+   {/* <DerivedState/> */}
+   <LiftStateUp/>
     </section>
   )
 }
