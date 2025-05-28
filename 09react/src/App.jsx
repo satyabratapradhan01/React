@@ -8,6 +8,7 @@ import { EventProps } from './components/EventProps';
 import { State } from './components/hooks/State';
 import { DerivedState } from './components/DericedState';
 import { LiftStateUp } from './components/LiftStateUp';
+import { ToggleSwitch } from './projects/ToggleSwtich/ToggleSwtich';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,7 +19,8 @@ function App() {
    {/* <EventHandling /> */}
    {/* <EventProps/> */}
    {/* <DerivedState/> */}
-   <LiftStateUp/>
+   {/* <LiftStateUp/> */}
+   <ToggleSwitch/>
     </section>
   )
 }
