@@ -119,8 +119,8 @@ span {
 }
 
 .todo-list {
-  min-width: 25%;
-
+  min-width: 20%;
+  min-height: 20%;
   /* To remove the bullets of unordered list */
   list-style: none;
 }
