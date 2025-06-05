@@ -23,14 +23,30 @@ export const Todo = () => {
         if(ifTodoContentMatched) return;
         setTask((prevTask) => [...prevTask, { id:id, content:content, checked:checked },]);
     };
+    //todo add data to localstorage
+    localStorage.setItem("reactTodo", JSON.stringify(task));
 
     // Tode handleDeleteTodo function
     const handleDeleteTodo = (value) => {
         const updatedTask = task.filter((curTask) => curTask.content !== value)
         setTask(updatedTask);
     }
+
+    // Todo handelClearTododata function
     const handleClearTodoData = () => {
         setTask([]);
+    }
+
+    // Tode handleCheckedTodo function
+    const handleCheckedTodo = (content) => {
+        const updatedTask = task.map((curTask) => {
+            if(curTask.content === content){
+                return {... curTask, checked: !curTask.checked }
+            } else {
+                return curTask;
+            }
+        });
+        setTask(updatedTask);
     }
     return (
         <section className="todo-container">
@@ -43,7 +59,12 @@ export const Todo = () => {
                 <ul>
                     {task.map((curTask) => {
                         return(
-                            <TodoList key={curTask.id} data={curTask.content} onHandleDeleteTodo = {handleDeleteTodo} />
+                            <TodoList 
+                            key={curTask.id} 
+                            data={curTask.content} 
+                            checked = {curTask.checked}
+                            onHandleDeleteTodo = {handleDeleteTodo}
+                            onHandleCheckedTodo = {handleCheckedTodo} />
                         )
                     })}
                 </ul>
