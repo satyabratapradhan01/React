@@ -7,7 +7,7 @@ import { EventHandling } from './components/EventHandling';
 import { EventProps } from './components/EventProps';
 import { State } from './components/hooks/State';
 import { DerivedState } from './components/DericedState';
-import { LiftStateUp } from './components/LiftStateUp';
+import { ShortCircuit } from './components/ShortCircuit';
 import { ToggleSwitch } from './projects/ToggleSwtich/ToggleSwtich';
 import { Todo } from './projects/Todo/Todo';
   
@@ -22,7 +22,8 @@ function App() {
    {/* <DerivedState/> */}
    {/* <LiftStateUp/> */}
    {/* <ToggleSwitch/> */}
-   <Todo/>
+   {/* <Todo/> */}
+   <ShortCircuit />
     </section>
   )
 }

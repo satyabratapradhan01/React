@@ -6,9 +6,22 @@ import { TodoList } from "./TodoList";
 import { TodoDate } from "./TodoDate";
 
 
+const todoKey = "reactTodo"
+
 export const Todo = () => {
+
+    const getLocalStorageTodoData = () => {
+        const rawTodo = localStorage.getItem(todoKey);
+        if(!rawTodo) return [];
+        return JSON.parse(rawTodo);
+    }
+
+
+     const [task, setTask] = useState(() => {  const rawTodo = localStorage.getItem(todoKey);
+        if(!rawTodo) return [];
+        return JSON.parse(rawTodo); });
     
-    const [task, setTask] = useState([]);
+    // const [task, setTask] = useState([]);
 
     const handleFormSubmit = (inputValue) => {
         const { id, content, checked } = inputValue;
@@ -24,7 +37,7 @@ export const Todo = () => {
         setTask((prevTask) => [...prevTask, { id:id, content:content, checked:checked },]);
     };
     //todo add data to localstorage
-    localStorage.setItem("reactTodo", JSON.stringify(task));
+    localStorage.setItem(todoKey, JSON.stringify(task));
 
     // Tode handleDeleteTodo function
     const handleDeleteTodo = (value) => {
