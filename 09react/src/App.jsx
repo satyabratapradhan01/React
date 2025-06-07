@@ -10,6 +10,8 @@ import { DerivedState } from './components/DericedState';
 import { ShortCircuit } from './components/ShortCircuit';
 import { ToggleSwitch } from './projects/ToggleSwtich/ToggleSwtich';
 import { Todo } from './projects/Todo/Todo';
+import { Counter } from './components/hooks/useState/Counter';
+import { LiftStateUp } from './components/LiftStateUp';
   
 function App() {
   const [count, setCount] = useState(0);
@@ -23,7 +25,7 @@ function App() {
    {/* <LiftStateUp/> */}
    {/* <ToggleSwitch/> */}
    {/* <Todo/> */}
-   <ShortCircuit />
+   <Counter />
     </section>
   )
 }
