@@ -1,9 +1,34 @@
 import { useState } from 'react';
 
 export const ContactForm = () => {
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+    // const [username, setUsername] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [message, setMessage] = useState("");
+
+    const [contacts, setContacts] = useState({
+        username: "",
+        email: "",
+        message: "",
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setContacts((prev) => ({
+            ...prev, [name] : value,
+        }));
+    };
+
+   const handleFormSubmit = (e) => {
+    // e.preventDefault();
+    // const contactData = {
+    //     username,
+    //     email,
+    //     message
+    // };
+    
+    console.log(contacts);
+
+   };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
@@ -13,7 +38,7 @@ export const ContactForm = () => {
                     <p className="text-gray-600">Please fill out the form below</p>
                 </div>
                 
-                <div className="space-y-6">
+                <div onSubmit={handleFormSubmit} className="space-y-6">
                     <div>
                         <label 
                             htmlFor="username" 
@@ -29,6 +54,9 @@ export const ContactForm = () => {
                             autoComplete="off"
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
                             placeholder="Enter your username"
+                            value={contacts.username}
+                            // onChange={(e) => setUsername(e.target.value)}
+                            onChange={handleInputChange}
                         />
                     </div>
 
@@ -37,7 +65,7 @@ export const ContactForm = () => {
                             htmlFor="email" 
                             className="block text-sm font-medium text-gray-700 mb-2"
                         >
-                            Password
+                            Email
                         </label>
                         <input 
                             type="email" 
@@ -46,7 +74,10 @@ export const ContactForm = () => {
                             required 
                             autoComplete="off"
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400"
-                            placeholder="Enter your password"
+                            placeholder="Enter your email"
+                            value={contacts.email}
+                            // onChange={(e) => setEmail(e.target.value)}
+                            onChange={handleInputChange}
                         />
                     </div>
 
@@ -61,6 +92,9 @@ export const ContactForm = () => {
                             name="message" 
                             id="message"
                             required 
+                            value={contacts.message}
+                            // onChange={(e) => setMessage(e.target.value)}
+                            onChange={handleInputChange}
                             autoComplete="off" 
                             rows="6"
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 resize-none"
@@ -70,6 +104,7 @@ export const ContactForm = () => {
 
                     <button
                         type="submit"
+                        onClick={handleFormSubmit}
                         className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200 shadow-lg"
                     >
                         Send Message
