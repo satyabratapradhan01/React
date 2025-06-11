@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Pokemon.css";
 
 export const HowNotToFeatchApi = () => {
-  const [apiData, setApiData] = useState(null);
+  const [pokemon, setPokemon] = useState(null);
   const [Loading, setLoading] = useState(true);
   const [error, setError] = useState("")
 
@@ -12,7 +12,7 @@ export const HowNotToFeatchApi = () => {
     fetch(API)
       .then((res) => res.json())
       .then((data) => {
-        setApiData(data);
+        setPokemon(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -41,7 +41,7 @@ export const HowNotToFeatchApi = () => {
       </div>
     )
 
-  if (apiData) {
+  if (pokemon) {
     return (
       <section className="container">
         <header>
@@ -50,11 +50,24 @@ export const HowNotToFeatchApi = () => {
         <ul className="card-demo">
           <li className="pokemon-card">
             <figure>
-              <img src={apiData.sprites.other.dream_world.front_default}
-                alt={apiData.name}
+              <img src={pokemon.sprites.other.dream_world.front_default}
+                alt={pokemon.name}
                 className="pokemon-image" />
             </figure>
-            <h1>{apiData.name}</h1>
+            <h1>{pokemon.name}</h1>
+            <div className="grid-three-cols">
+              <p className="pokemon-info">
+                Height: <span> {pokemon.height} </span>
+              </p>
+
+              <p className="pokemon-info">
+                Weight: <span> {pokemon.weight} </span>
+              </p>
+
+              <p className="pokemon-info">
+                speed: <span> {pokemon.stats[5].base_stat} </span>
+              </p>
+            </div>
           </li>
         </ul>
       </section>
