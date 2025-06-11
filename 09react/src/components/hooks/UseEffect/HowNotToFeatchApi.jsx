@@ -1,27 +1,28 @@
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
 
 export const HowNotToFeatchApi = () => {
-    const [apiData, setApiData] = useState([]);
+  const [apiData, setApiData] = useState([]);
+  const API = "https://jsonplaceholder.typicode.com/posts";
+;
 
-    const API = "https://pokeapi.co/api/v2/pokemon/pikachu";
-
-    fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-    .then((res) => res.json())
-    .then((data) =>{
+  useEffect(() => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((data) => {
         setApiData(data);
-    })
-    .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-    return(
-        <>
-        <ul>
-            data:
+  return (
+    <>
+    <div>
+        <ul> Data:
             {apiData.map((curData) => {
-                return <li key={curData.id}> {curData.title} </li>
+                return <li key={curData.id}> {curData.title}</li>
             })}
         </ul>
-        </>
-    )
-}
+    </div>
+    </>
+  );
+};
