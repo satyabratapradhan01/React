@@ -9,7 +9,7 @@ export const Pokemon = () => {
     const [search, setSearch] = useState("");
 
 
-    const API = "https://pokeapi.co/api/v2/pokemon?limit=24";
+    const API = "https://pokeapi.co/api/v2/pokemon?limit=124";
 
     const fetchPokemon = async () => {
         try {
@@ -37,6 +37,9 @@ export const Pokemon = () => {
     }, []);
 
     //search functionality
+    const searchData = pokemon.filter((curPokemon) => 
+    curPokemon.name.toLowerCase().includes(search.toLowerCase())
+    )
 
     if(loading){
         return(
@@ -71,7 +74,8 @@ export const Pokemon = () => {
             </div>
             <div>
                 <ul className="cards">
-                    {pokemon.map((curPokemon) => {
+                    {/* {pokemon.map((curPokemon) => { */}
+                        {searchData.map((curPokemon) => {
                         return (
                         <PokemonCard key={curPokemon.id} pokemonData={curPokemon} />
                     );
