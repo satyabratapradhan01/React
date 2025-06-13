@@ -1,16 +1,13 @@
+import { BioProvider } from "./components/hooks/ContextAip";
+import { Home } from "./components/hooks/ContextAip/Home";
+import { ParentComponent } from "./components/PropDriling";
 
-import { ParentComponent } from "./components/PropDriling"
-
-
-  
 function App() {
-  
   return (
-    <section className='container'>
-   <ParentComponent />
-    </section>
-  )
+    <BioProvider>
+      <Home />
+    </BioProvider>
+  );
 }
 
-export default App
-
+export default App;
