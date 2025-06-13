@@ -1,5 +1,5 @@
-import { UseId } from "./components/hooks/UseId"
-import { UseRef } from "./components/hooks/useRefs"
+
+import { ParentComponent } from "./components/PropDriling"
 
 
   
@@ -7,7 +7,7 @@ function App() {
   
   return (
     <section className='container'>
-   <UseId />
+   <ParentComponent />
     </section>
   )
 }
