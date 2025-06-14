@@ -1,9 +1,10 @@
 
-import ReducerComp from "./components/hooks/UsedReducer";
+import ReactMemo from "./components/hooks/Memo/ReactMemo";
+
 
 function App() {
   return (
-   <ReducerComp />
+   <ReactMemo />
   );
 }
 
