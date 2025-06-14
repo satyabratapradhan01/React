@@ -1,8 +1,14 @@
-import { useContext } from "react"
+import { use, useContext } from "react"
 import { BioContext } from "."
 
 export const About = () => {
-    const{ name, age} = useContext(BioContext);
+    
+    const newHook = true;
+    let name, age;  
+
+    if (newHook) {
+        ({ name, age } = use(BioContext))
+    }
     
     return (
         <>
