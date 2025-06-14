@@ -1,15 +1,12 @@
 import { BioProvider } from "./components/hooks/ContextAip";
 import { About } from "./components/hooks/ContextAip/About";
-import { Home } from "./components/hooks/ContextAip/Home";
-import { ParentComponent } from "./components/PropDriling";
+import { ThemeProvider, DarkLight } from "./components/hooks/ContextAip/DarkLight";
 
 function App() {
   return (
-    <>
-    <BioProvider>
-      <Home />    
-      <About />
-    </BioProvider></>
+    <ThemeProvider>
+      <DarkLight />
+    </ThemeProvider>
   );
 }
 
