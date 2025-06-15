@@ -5,7 +5,7 @@ import MemoParentComponent from "./components/hooks/Memo/UseMemo";
 
 function App() {
   return (
-   <MemoParentComponent />
+   <ReactMemo />
   );
 }
 

@@ -1,6 +1,6 @@
 import { memo, useRef } from "react";
 
-function MemoCount() {
+function MemoCount({bioData }) {
     const renderCount = useRef(0);
 
     return ( <>
