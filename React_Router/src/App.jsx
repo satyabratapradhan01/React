@@ -5,6 +5,7 @@ import Contact from './Pages/Contact';
 import Home from './Pages/Home';
 import Movie from './Pages/Movie';
 import AppLayout from './components/layout/AppLayout';
+import "./App.css"
 
 function App() {
 
