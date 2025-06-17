@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Movie from './Pages/Movie';
 import AppLayout from './components/layout/AppLayout';
 import "./App.css"
+import ErrorPage from './Pages/ErrorPage';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     {
       path: "/",
       element: <AppLayout />,
+      errorElement: <ErrorPage />,
       children: [
         {
         path: "/",
@@ -30,6 +32,10 @@ function App() {
         path: "/contact",
         element: <Contact />
       },
+      // {
+      //   path: "*", 
+      //   element: <ErrorPage />
+      // }
       ]
     }
     ])
