@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import About from './Pages/About';
-import Contact from './Pages/Contact';
+import Contact, { ContactData } from './Pages/Contact';
 import Home from './Pages/Home';
 import Movie from './Pages/Movie';
 import AppLayout from './components/layout/AppLayout';
@@ -39,7 +39,8 @@ function App() {
       },
       {
         path: "/contact",
-        element: <Contact />
+        element: <Contact />,
+        action: ContactData 
       },
       // {
       //   path: "*", 
