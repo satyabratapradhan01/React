@@ -7,6 +7,9 @@ import Movie from './Pages/Movie';
 import AppLayout from './components/layout/AppLayout';
 import "./App.css"
 import ErrorPage from './Pages/ErrorPage';
+import getMoviesData from './api/GetAPIData';
+import MovieDetails from './components/UI/MovieDetails';
+import GetMoviesDetails from './api/GetMovieDetails';
 
 function App() {
 
@@ -26,7 +29,13 @@ function App() {
       },
       {
         path: "/movie",
-        element: <Movie />
+        element: <Movie />,
+        loader: getMoviesData,
+      },
+      {
+        path: "/movie/:movieID",
+        element: <MovieDetails />,
+        loader: GetMoviesDetails,
       },
       {
         path: "/contact",
