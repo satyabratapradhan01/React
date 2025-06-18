@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPost } from "../api/PostApi";
+import { getDelete, getPost } from "../api/PostApi";
 import "./Posts.css"; // Add this line to import styles
 
 export const Posts = () => {
@@ -15,6 +15,21 @@ export const Posts = () => {
     getPostData();
   }, []);
 
+  // Delete
+  const handleDeletePost = async (id) => {
+   try {
+    const res = await getDelete(id);
+    if(res.status === 200){
+      const newUpdatedPosts = data.filter((curPost) => {
+        return curPost.id !==id;
+      });
+      setData(newUpdatedPosts);
+    }
+   } catch (error) {
+    
+   }
+  }
+
   return (
     <div className="posts-wrapper">
       <ul className="card-grid">
@@ -26,7 +41,7 @@ export const Posts = () => {
               <p>{body}</p>
               <div className="btn-group">
                 <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={() => {handleDeletePost(id)}}>Delete</button>
               </div>
             </li>
           );
