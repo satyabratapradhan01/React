@@ -19,5 +19,10 @@ export const postData = (post) => {
     return api.post("posts", post);
 }
 
+// put method
+export const updateData = (id, post) => {
+    return api.put(`/posts/${id}`, post);
+}
+
 
 // https://jsonplaceholder.typicode.com

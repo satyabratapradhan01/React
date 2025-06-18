@@ -5,6 +5,7 @@ import Form from "./Form";
 
 export const Posts = () => {
   const [data, setData] = useState([]);
+  const [updateDataApi, setUpdateDataApi] = useState({});
 
   const getPostData = async () => {
     const res = await getPost();
@@ -31,10 +32,18 @@ export const Posts = () => {
    }
   }
 
+  // handleUpdatePost 
+  const handleUpdatePost = (curElem) => {
+    setUpdateDataApi(curElem);
+  };
+
   return (
     <>
     <section>
-      <Form data={data} setData={setData} />
+      <Form data={data} 
+      setData={setData} 
+      updateDataApi={updateDataApi} 
+      setUpdateDataApi={setUpdateDataApi} />
     </section>
     <div className="posts-wrapper">
       <ul className="card-grid">
@@ -42,10 +51,11 @@ export const Posts = () => {
           const { id, body, title } = curElem;
           return (
             <li className="card" key={id}>
+              <p>{id}</p>
               <h3>{title}</h3>
               <p>{body}</p>
               <div className="btn-group">
-                <button>Edit</button>
+                <button onClick={() => {handleUpdatePost(curElem)}}>Edit</button>
                 <button onClick={() => {handleDeletePost(id)}}>Delete</button>
               </div>
             </li>
