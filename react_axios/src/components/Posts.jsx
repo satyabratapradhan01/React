@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDelete, getPost } from "../api/PostApi";
 import "./Posts.css"; // Add this line to import styles
+import Form from "./Form";
 
 export const Posts = () => {
   const [data, setData] = useState([]);
@@ -31,6 +32,10 @@ export const Posts = () => {
   }
 
   return (
+    <>
+    <section>
+      <Form data={data} setData={setData} />
+    </section>
     <div className="posts-wrapper">
       <ul className="card-grid">
         {data.map((curElem) => {
@@ -48,5 +53,6 @@ export const Posts = () => {
         })}
       </ul>
     </div>
+    </>
   );
 };
